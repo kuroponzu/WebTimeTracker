@@ -1,0 +1,214 @@
+/**
+ * Styles for WebTimeTracker popup
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 400px;
+  min-height: 500px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.container {
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.date {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+/* Current Session Section */
+.current-session {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.session-info {
+  text-align: center;
+}
+
+.domain-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  word-break: break-all;
+}
+
+.time-display {
+  font-size: 32px;
+  font-weight: 700;
+  font-feature-settings: "tnum";
+  letter-spacing: 2px;
+}
+
+/* Today's Statistics Section */
+.today-stats {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.total-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.domain-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.domain-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.domain-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.domain-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.domain-item {
+  padding: 8px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.domain-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.domain-item .domain-name {
+  display: inline-block;
+  width: 60%;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.domain-item .domain-time {
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 500;
+  font-feature-settings: "tnum";
+}
+
+.progress-bar {
+  margin-top: 5px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #667eea;
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTimeTracker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WebTimeTracker</h1>
+            <div class="date" id="currentDate"></div>
+        </header>
+
+        <section class="current-session">
+            <h2>Current Session</h2>
+            <div id="currentSessionInfo" class="session-info">
+                <div class="domain-name" id="currentDomain">No active tab</div>
+                <div class="time-display" id="currentTime">00:00:00</div>
+            </div>
+        </section>
+
+        <section class="today-stats">
+            <h2>Today's Statistics</h2>
+            <div class="total-time">
+                <span>Total Time:</span>
+                <span id="totalTime">00:00:00</span>
+            </div>
+            <div class="domain-list" id="domainList">
+                <!-- Domain list will be populated here -->
+            </div>
+        </section>
+
+        <footer>
+            <button id="optionsBtn" class="btn-secondary">Settings</button>
+            <button id="exportBtn" class="btn-primary">Export Data</button>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

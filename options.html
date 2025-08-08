@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTimeTracker - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WebTimeTracker Settings</h1>
+        </header>
+
+        <main>
+            <section class="settings-section">
+                <h2>Excluded Domains</h2>
+                <p class="section-description">Add domains you don't want to track</p>
+
+                <div class="input-group">
+                    <input type="text" id="excludeDomainInput" placeholder="example.com">
+                    <button id="addExcludeDomain" class="btn-add">Add</button>
+                </div>
+
+                <div id="excludedDomainsList" class="excluded-list">
+                    <!-- Excluded domains will be listed here -->
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>Data Management</h2>
+                <p class="section-description">Export or clear your tracked data</p>
+
+                <div class="data-actions">
+                    <div class="action-group">
+                        <h3>Export Data</h3>
+                        <p>Download your tracking data in different formats</p>
+                        <div class="button-group">
+                            <button id="exportJsonBtn" class="btn-primary">Export as JSON</button>
+                            <button id="exportCsvBtn" class="btn-primary">Export as CSV</button>
+                        </div>
+                    </div>
+
+                    <div class="action-group">
+                        <h3>Clear Data</h3>
+                        <p>Remove tracking data from storage</p>
+                        <div class="button-group">
+                            <button id="clearTodayBtn" class="btn-warning">Clear Today's Data</button>
+                            <button id="clearAllBtn" class="btn-danger">Clear All Data</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="settings-section">
+                <h2>Statistics</h2>
+                <div id="statistics" class="statistics">
+                    <!-- Statistics will be displayed here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>WebTimeTracker v1.0.0</p>
+            <p class="footer-links">
+                <a href="#" id="privacyLink">Privacy Policy</a> |
+                <a href="#" id="supportLink">Support</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Icons</title>
+</head>
+<body>
+    <h1>WebTimeTracker Icon Generator</h1>
+    <p>Open this file in a browser and save the generated icons</p>
+
+    <div id="icons">
+        <h2>16x16</h2>
+        <canvas id="icon16" width="16" height="16"></canvas>
+
+        <h2>32x32</h2>
+        <canvas id="icon32" width="32" height="32"></canvas>
+
+        <h2>48x48</h2>
+        <canvas id="icon48" width="48" height="48"></canvas>
+
+        <h2>128x128</h2>
+        <canvas id="icon128" width="128" height="128"></canvas>
+    </div>
+
+    <script>
+        // Simple icon drawing function
+        function drawIcon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            const scale = size / 128;
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+
+            // Draw background circle
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2 - 2*scale, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw clock face
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, (size/2 - 8*scale), 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw clock center
+            ctx.fillStyle = '#667eea';
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, 3*scale, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw hour hand
+            ctx.strokeStyle = '#667eea';
+            ctx.lineWidth = 3*scale;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(size/2, size/2);
+            ctx.lineTo(size/2, size/2 - 15*scale);
+            ctx.stroke();
+
+            // Draw minute hand
+            ctx.strokeStyle = '#764ba2';
+            ctx.lineWidth = 2*scale;
+            ctx.beginPath();
+            ctx.moveTo(size/2, size/2);
+            ctx.lineTo(size/2 + 15*scale, size/2);
+            ctx.stroke();
+
+            // Add download link
+            canvas.onclick = function() {
+                const link = document.createElement('a');
+                link.download = `icon-${size}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            };
+
+            // Add instruction
+            const instruction = document.createElement('p');
+            instruction.textContent = `Click to download icon-${size}.png`;
+            canvas.parentElement.appendChild(instruction);
+        }
+
+        // Generate all icons
+        drawIcon(document.getElementById('icon16'), 16);
+        drawIcon(document.getElementById('icon32'), 32);
+        drawIcon(document.getElementById('icon48'), 48);
+        drawIcon(document.getElementById('icon128'), 128);
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            cursor: pointer;
+            display: block;
+            margin: 10px 0;
+        }
+        canvas:hover {
+            border-color: #667eea;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</body>
+</html>
